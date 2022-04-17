@@ -16,7 +16,7 @@ table {
     position: absolute;
     left: 173px;
     top: 98px;
-    border_spacing: 0px;
+    border-spacing: 0px;
 }
 
 td {
@@ -33,13 +33,9 @@ form {
 }
 
 form input{
-    background-color: rgb(83, 207, 113);
-}
-
-form input {
-    background-color: rgb(152, 207 e 113);
+    background-color: rgb(152, 207, 113);
     border-color: rgb(83, 175, 19);
-
+    font-size: 1em;
 }
 
 .messageArea {
@@ -50,5 +46,13 @@ form input {
 }
 
 .hit {
-    background: url(./battleship.js/Married);
+    background: url("./media/ship.png") center center;
+    background-repeat: no-repeat;
 }
+
+.miss {
+    background: url("./media/miss.png") center center;
+    background-repeat: no-repeat; 
+    
+}
+
