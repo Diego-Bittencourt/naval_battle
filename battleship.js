@@ -59,4 +59,30 @@ var model = {
         }
 };
 
-model.fire("63");
+model.fire("63"); //testing the model
+model.fire("06");
+model.fire("16");
+model.fire("26");
+
+//adding the controller object
+
+var controller = {
+    guesses: 0,
+    processGuess: function(guess) {
+        //more code will go here
+    }
+};
+
+model.fire("53"); // testing the model
+model.fire("06");
+model.fire("16");
+model.fire("26");
+model.fire("34");
+
+// Adding the controller 
+var controller = {
+    guesses: 0,
+    processGuess: function(guess) {
+        
+    }
+}
