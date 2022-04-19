@@ -59,11 +59,6 @@ var model = {
         }
 };
 
-model.fire("63"); //testing the model
-model.fire("06");
-model.fire("16");
-model.fire("26");
-
 //creating a function to make sure the player's guess is a valid guess
 
 function parseGuess(guess) {
@@ -87,26 +82,43 @@ function parseGuess(guess) {
     return null;
 }
 
-//adding the controller object
-
-var controller = {
-    guesses: 0,
-    processGuess: function(guess) {
-        //more code will go here
-    }
-};
-
-console.log(parseGuess("A0"));
-console.log(parseGuess("B6"));
-console.log(parseGuess("G3"));
-console.log(parseGuess("H0"));
-console.log(parseGuess("A7"));
-
 // Adding the controller 
+
 var controller = {
     guesses: 0,
     processGuess: function(guess) {
-        
+        var location = parseGuess(guess);
+        if (location) {
+            this.guesses++;
+            var hit = model.fire(location);
+            if (hit && model.shipsSunk === model.numShips) {
+                view.displayMessage("You sank all my battleships, in " + this.guessses + "guesses!");
+            }
+        }
     }
     
+};
+
+function init() {
+    var fireButton = document.getElementById("fireButton");
+    fireButton.onclick = handleFireButton;
+    var guessInput = document.getElementById("guessInput");
+    guessInput.onkeypress = handleKeyPress;
 }
+
+function handleFireButton() {
+var guessInput = document.getElementById("guessInput");
+var guess = guessInput.value;
+controller.processGuess(guess);
+guessInput.value = "";
+}
+
+function handleKeyPress(e) {
+    var fireButton = document.getElementById("fireButton");
+    if (e.keyCode === 13) {
+        fireButton.click();
+        return false;
+    }
+}
+
+window.onload = init;
