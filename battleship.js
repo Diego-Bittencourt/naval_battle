@@ -64,6 +64,29 @@ model.fire("06");
 model.fire("16");
 model.fire("26");
 
+//creating a function to make sure the player's guess is a valid guess
+
+function parseGuess(guess) {
+    var alphabet = ["A", "B", "C", "D", "E", "F", "G"]; //create an array with valid letters to compare the player's guess
+
+    if (guess === null || guess.length !== 2) { //verify if the player's guess is null or doesn't have 2 characteres length
+        alert("Oops, please enter a letter and a number on the board.");
+    } else {
+        var firstChar = guess.charAt(0); //catches the first character of the guess
+        var row = alphabet.indexOf(firstChar); //identify if the letter exists in the valid letter's array and turns it into a number from 0 to 6
+        var column = guess.charAt(1); //cactches the second characters in the guess
+
+        if (isNaN(row) || isNaN(column)) {
+            alert("Oops, that isn't on the board.");
+        } else if (row < 0 || row >= model.boardSize || column < 0 || column >= model.boardSize) {
+            alert("Oops, that's off the board!");
+        } else {
+            return row + column;
+        }
+    }
+    return null;
+}
+
 //adding the controller object
 
 var controller = {
@@ -73,11 +96,11 @@ var controller = {
     }
 };
 
-model.fire("53"); // testing the model
-model.fire("06");
-model.fire("16");
-model.fire("26");
-model.fire("34");
+console.log(parseGuess("A0"));
+console.log(parseGuess("B6"));
+console.log(parseGuess("G3"));
+console.log(parseGuess("H0"));
+console.log(parseGuess("A7"));
 
 // Adding the controller 
 var controller = {
@@ -85,4 +108,5 @@ var controller = {
     processGuess: function(guess) {
         
     }
+    
 }
