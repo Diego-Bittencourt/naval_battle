@@ -10,6 +10,7 @@ body {
     margin: auto;
     background: url("./media/board.jpg");
     background-repeat: no-repeat;
+    border: 1px solid blue;
 }
 
 table {
@@ -40,11 +41,15 @@ form input{
 
 .messageArea {
     position: absolute;
-    top: 5px;
-    left: 5px;
+    top: 15px;
+    left: 70px;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
     color: rgb(83, 175, 19);
     height: 10vh;
     font-size: 34px;
+    border: 1px solid red;
 }
 
 .hit {
