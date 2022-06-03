@@ -10,7 +10,6 @@ body {
     margin: auto;
     background: url("./media/board.jpg");
     background-repeat: no-repeat;
-    border: 1px solid blue;
 }
 
 table {
@@ -49,7 +48,6 @@ form input{
     color: rgb(83, 175, 19);
     height: 10vh;
     font-size: 34px;
-    border: 1px solid red;
 }
 
 .hit {
